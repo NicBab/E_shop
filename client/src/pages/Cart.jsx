@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import { Add, Remove } from "@material-ui/icons";
-import { Navbar, Announcement, Footer } from "../components/index";
+import { Announcement } from "../components/index";
 import { mobile } from "../responsive";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch, useSelector } from "react-redux";
@@ -54,13 +54,6 @@ const TopText = styled.span`
   margin: 0px 10px;
   cursor: pointer;
 `;
-
-// const CartIsEmpty = styled.div`
-// text-align: center;
-// display: flex;
-// align-items: center;
-// justify-content: center;
-// `;
 
 const Bottom = styled.div`
   display: flex;
@@ -194,7 +187,6 @@ const Cart = () => {
   const navigate = useNavigate();
   const [stripeToken, setStripeToken] = useState(null);
   const dispatch = useDispatch();
-  const [total, setTotal] = useState(0);
   const onToken = (token) => {
     setStripeToken(token);
   };
@@ -203,7 +195,7 @@ const Cart = () => {
     const makeRequest = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:6001/api/checkout/payment",
+          "https://eshop-hlzm.onrender.com/api/checkout/payment",
           {
             tokenId: stripeToken.id,
             amount: 2000,
