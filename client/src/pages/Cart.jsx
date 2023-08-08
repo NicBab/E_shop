@@ -6,6 +6,7 @@ import { Announcement } from "../components/index";
 import { mobile } from "../responsive";
 import StripeCheckout from "react-stripe-checkout";
 import { useDispatch, useSelector } from "react-redux";
+import { axiosInstance } from "../requestMethods.js";
 import {
   decreaseCartQty,
   addToCart,
@@ -14,7 +15,7 @@ import {
   getTotals,
 } from "../redux/cartRedux";
 const KEY = process.env.STRIPE_PUBLISHABLE_KEY;
-const axios = require("axios").default;
+
 
 const Container = styled.div``;
 
@@ -194,8 +195,8 @@ const Cart = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await axios.post(
-          "https://eshop-hlzm.onrender.com/api/checkout/payment",
+        const res = await axiosInstance.post(
+          "/checkout/payment",
           {
             tokenId: stripeToken.id,
             amount: 2000,

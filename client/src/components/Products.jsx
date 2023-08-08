@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosInstance } from "../requestMethods.js";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Product } from "./index";
@@ -17,10 +17,10 @@ const Products = ({ cat, filters, sort }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
+        const res = await axiosInstance.get(
           cat
-            ? `https://eshop-hlzm.onrender.com/api/products?category=${cat}`
-            : "https://eshop-hlzm.onrender.com/api/products"
+            ? `/products?category=${cat}`
+            : "/products"
         );
         setProducts(res.data);
       } catch (err) {}

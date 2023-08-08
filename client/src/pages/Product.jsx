@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// import { Add, Remove } from "@material-ui/icons";
+import { Add, Remove } from "@material-ui/icons";
 import { Announcement } from "../components/index";
 import { mobile } from "../responsive";
 import { useLocation, Link } from "react-router-dom";
@@ -140,13 +140,13 @@ const Product = () => {
     getProduct();
   }, [id, cart]);
 
-  // const handleQuantity = (type) => {
-  //   if (type === "dec") {
-  //     quantity > 1 && setQuantity(quantity - 1);
-  //   } else {
-  //     setQuantity(quantity + 1);
-  //   }
-  // };
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
 
   const handleAddToCart = (product) => {
     dispatch(addToCart({ ...product }));
@@ -167,7 +167,7 @@ const Product = () => {
             <Filter>
               <FilterTitle>Color</FilterTitle>
               {product.color?.map((c) => (
-                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+                <FilterColor color={c} key={c} onClick={(e) => setColor(e.target.value)} />
               ))}
             </Filter>
             <Filter>
@@ -180,11 +180,11 @@ const Product = () => {
             </Filter>
           </FilterContainer>
           <AddContainer>
-            {/* <AmountContainer>
+            <AmountContainer>
               <Remove onClick={() => handleQuantity("dec")} />
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity("inc")} />
-            </AmountContainer> */}
+            </AmountContainer>
             <Link to="/cart">
               <Button onClick={() => handleAddToCart({ ...product })}>
                 Add to Cart
