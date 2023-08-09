@@ -1,11 +1,9 @@
 import "./App.css";
 import React from "react";
-import { useSelector } from "react-redux";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 
 import {
@@ -21,7 +19,6 @@ import {
 import { Navbar, Footer } from "./components/index"
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser)
 
   return (
     <Router>
