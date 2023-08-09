@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import { mobile } from "../responsive";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userRedux";
-import { getTotals } from "../redux/cartRedux"
+// import { getTotals } from "../redux/cartRedux"
 
 const Container = styled.div`
   height: 60px;
@@ -76,8 +76,7 @@ color: black;
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate();
-  const { cartTotalQuantity, cart } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.currentUser);
 
   const handleLogout = () => {

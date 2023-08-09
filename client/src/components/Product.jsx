@@ -72,12 +72,6 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
-  // const cartItem = useSelector((state) => state.cart)
-  // const dispatch = useDispatch
-
-  // const handleAddToCart = (cartItem) => {
-  //   dispatch(addToCart({...cartItem}))
-  // }
 
   return (
     <Container>

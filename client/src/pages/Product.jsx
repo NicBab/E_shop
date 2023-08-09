@@ -8,7 +8,7 @@ import { publicRequest } from "../requestMethods";
 import { addToCart } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import Cart from "./Cart";
+// import Cart from "./Cart";
 
 const Container = styled.div``;
 
@@ -166,14 +166,14 @@ const Product = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              {product.color?.map((c) => (
+              {color?.map((c) => (
                 <FilterColor color={c} key={c} onClick={(e) => setColor(e.target.value)} />
               ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
               <FilterSize onChange={(e) => setSize(e.target.value)}>
-                {product.size?.map((s) => (
+                {size?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
               </FilterSize>

@@ -1,12 +1,9 @@
 import React from "react";
 import {
-  Navbar,
   Announcement,
   Slider,
   Categories,
   Products,
-  Newsletter,
-  Footer
 } from "../components/index";
 
 const Home = () => {

@@ -3,11 +3,8 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { mobile } from "../responsive";
 import {
-  Navbar,
   Announcement,
   Products,
-  Newsletter,
-  Footer,
 } from "../components/index";
 
 const Container = styled.div``;
